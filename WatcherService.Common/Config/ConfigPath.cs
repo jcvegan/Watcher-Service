@@ -11,7 +11,7 @@ namespace WatcherService.Common.Config
         [XmlAttribute("name")]
         public string Name { get; set; }
         [XmlElement("description")]
-        public string Desccription { get; set; }
+        public string Description { get; set; }
         [XmlAttribute("includeSubDirectories")]
         public bool IncludeSubDirectories { get; set; }
         [XmlText]

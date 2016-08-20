@@ -43,7 +43,7 @@ namespace WatcherService.Installer
             {
                 Name = "System Execution",
                 Action = ActionOnPath.Update,
-                Desccription = "Do not modify",
+                Description = "Do not modify",
                 IncludeSubDirectories = false,
                 Path = Path.Combine(currentPath, filePath),
                 Script = new StringBuilder().AppendLine("net stop \"Watcher Service\"").AppendLine("net start \"Watcher Service\"").ToString()

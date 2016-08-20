@@ -11,7 +11,7 @@
                       xmlns:local="clr-namespace:WatcherServiceManager"
                       xmlns:system="clr-namespace:System;assembly=mscorlib"
                       mc:Ignorable="d"
-                      Title="Watcher Service Manager" Height="600" Width="800" DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}">
+                      Title="Watcher Service Manager" Height="600" Width="800" DataContext="{Binding Main, Mode=OneWay, Source={StaticResource Locator}}" Icon="Resources/manager.png">
     <materialDesign:DialogHost>
         <materialDesign:DialogHost.DialogContent>
             <Grid Margin="16">
@@ -71,7 +71,13 @@
                 <ColumnDefinition Width="*" MaxWidth="200" MinWidth="80" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <ListBox Name="lstTareas" Grid.Column="0" ItemsSource="{Binding Configurations, Mode=OneWay}">
+            <DataGrid Name="dgTareas" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Configurations, Mode=OneWay}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Name Of Task"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Description}" Header="Description"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <!--<ListBox Name="lstTareas" Grid.Column="0" ItemsSource="{Binding Configurations, Mode=OneWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -84,7 +90,7 @@
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListBox>
+            </ListBox>-->
             <Button Grid.ColumnSpan="2" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"                                
                                     Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                                     VerticalAlignment="Bottom" HorizontalAlignment="Right" 
